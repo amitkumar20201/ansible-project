@@ -1,0 +1,9 @@
+---
+        - hosts: all
+          remote_user: ansible
+          become: yes
+          tasks:
+            - name: Ping all nodes in my infra
+              action: ping
+
+                       

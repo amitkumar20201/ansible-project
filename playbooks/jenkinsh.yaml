@@ -1,0 +1,10 @@
+
+--- ## Nginx installation using a role from Ansible galaxy
+- name: myjenkins
+  hosts: ansible-host
+  become: yes
+  tasks:
+    - name: install jenkins modules
+      include_role:
+        name: geerlingguy.jenkins
+

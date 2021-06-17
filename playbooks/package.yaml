@@ -1,0 +1,10 @@
+
+---
+        - hosts: nodes
+          remote_user: ansible
+          become: yes
+          tasks:
+            - package:
+               name: elinks
+               state: absent
+

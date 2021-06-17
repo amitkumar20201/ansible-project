@@ -1,0 +1,15 @@
+
+--- 
+## Using loop to create multiple users
+- name: Ensure users
+  hosts: nodes
+  become: yes
+  tasks:
+  - name: Ensure users are present
+    user:
+      name: "{{item}}"
+      state: present
+    loop:
+    - bob
+    - jane
+    - mary
