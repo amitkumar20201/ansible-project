@@ -1,0 +1,28 @@
+
+--- ## Playbook to install Apache on both Ubuntu and CentOS using facts
+
+- hosts: nodes
+  become: yes
+  tasks:
+    - name: Update all Ubuntu packages
+      apt:
+        update_cache: yes      
+      when: ansible_distribution == 'Ubuntu'
+
+    - name: Install required Ubuntu packages
+      apt:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+          - openjdk-8-jdk
+      when: ansible_distribution == 'Ubuntu'  
+
+    - name: Install JDK  on CentOS
+      #when: ansible_facts['os_family'] == "RedHat"
+      package:
+        yum: name=java-1.7.0-openjdk 
+        state: present
+        #when: ansible_distribution == 'CentOS'
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
