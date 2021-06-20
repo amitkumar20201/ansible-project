@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
     
@@ -26,7 +25,7 @@ pipeline {
              
             steps {
 			   //sh "ansible-playbook playbooks/install-tomcat.yaml"
-			   sh "ansible-playbook ~/playbooks/install-tomcat.yaml -i etc/ansible/hosts --user ansible --key-file ~/.ssh/id_rsa"
+			   sh "ansible-playbook /home/ansible/playbooks/install-tomcat.yaml -i etc/ansible/hosts --user ansible --key-file ~/.ssh/id_rsa"
             }
         }
     }
