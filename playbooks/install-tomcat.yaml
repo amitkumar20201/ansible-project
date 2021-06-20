@@ -16,5 +16,5 @@
   gather_facts: false
   tasks:
     - include_role:
-        name: tomcat
+        name: /home/ansible/tomcat
 
