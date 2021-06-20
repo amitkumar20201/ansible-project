@@ -35,6 +35,7 @@
   become: true
   
 - name: copy war file
+  copy: src=/home/ansible/CI-usingAnsible/target/LoginWebApp-1.war dest=/opt/apache-tomcat-7.0.61/webapps/
   copy: src=/var/lib/jenkins/workspace/ci-cd-deployment-ansible/target/maven-web-application.war dest=/opt/apache-tomcat-7.0.61/webapps/
 
   notify: restart tomcat
